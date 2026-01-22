@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年 衆院選：アラサーのための投票戦略ガイド</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Neutrals (Grounded/Calm) -->
+    
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fdfbf7;
+            color: #334155;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        /* Custom timeline line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background: #cbd5e1;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800">🗳️ 2026衆院選ガイド <span class="text-sm font-normal text-slate-500 ml-2">for アラサー</span></h1>
+            <nav class="hidden md:flex space-x-4 text-sm font-medium text-slate-600">
+                <a href="#landscape" class="hover:text-amber-600 transition">情勢</a>
+                <a href="#comparison" class="hover:text-amber-600 transition">5つの視点</a>
+                <a href="#simulation" class="hover:text-amber-600 transition">診断</a>
+                <a href="#schedule" class="hover:text-amber-600 transition">日程</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="max-w-4xl mx-auto px-4 py-12 md:py-20 text-center">
+            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold mb-4">2026.02.08 投開票</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-slate-800 leading-tight">
+                あなたの「1票」は、<br>未来への投資です。
+            </h2>
+            <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                数十年に一度の政治転換期。戦後最短の短期決戦。<br>
+                税金、子育て、年金... アラサー世代の生活を左右する<br>
+                重要な選択のための情報を整理しました。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#landscape" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-700 transition shadow-lg">現状を知る</a>
+                <a href="#simulation" class="bg-white border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition shadow-sm">自分に合う党を探す</a>
+            </div>
+        </section>
+
+        <!-- Section 1: The Landscape (Analysis) -->
+        <section id="landscape" class="bg-white py-16 border-t border-stone-100">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">激変した政治勢力図</h3>
+                    <p class="text-slate-600">
+                        今回の選挙は、従来の「自民一強」体制とは全く異なる構図です。
+                        高市首相による「電撃解散」と、それに伴う政界再編。
+                        新しい対立軸を理解することが、第一歩です。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Ruling Coalition -->
+                    <div class="bg-stone-50 p-6 rounded-xl border-l-4 border-slate-500 card-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-bold text-slate-800">政権与党連合</h4>
+                            <span class="text-xs bg-slate-200 px-2 py-1 rounded">高市政権</span>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="bg-slate-600 text-white px-3 py-1 rounded font-bold text-sm">自民党</div>
+                            <div class="text-slate-400 font-bold">+</div>
+                            <div class="bg-green-600 text-white px-3 py-1 rounded font-bold text-sm">維新の会</div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start"><span class="mr-2">🔹</span><strong>積極財政：</strong>経済成長を最優先</li>
+                            <li class="flex items-start"><span class="mr-2">🔹</span><strong>消費税：</strong>2年間限定で食料品ゼロ</li>
+                            <li class="flex items-start"><span class="mr-2">🔹</span><strong>教育：</strong>所得制限撤廃・完全無償化へ</li>
+                        </ul>
+                    </div>
+
+                    <!-- Opposition Coalition -->
+                    <div class="bg-stone-50 p-6 rounded-xl border-l-4 border-amber-500 card-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-bold text-slate-800">中道改革連合 (CRA)</h4>
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">新勢力</span>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="bg-blue-600 text-white px-3 py-1 rounded font-bold text-sm">立憲民主</div>
+                            <div class="text-slate-400 font-bold">+</div>
+                            <div class="bg-pink-600 text-white px-3 py-1 rounded font-bold text-sm">公明党</div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start"><span class="mr-2">🔸</span><strong>生活者目線：</strong>家計負担の軽減重視</li>
+                            <li class="flex items-start"><span class="mr-2">🔸</span><strong>消費税：</strong>恒久的に食料品ゼロ</li>
+                            <li class="flex items-start"><span class="mr-2">🔸</span><strong>社会保障：</strong>給付付き税額控除の導入</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl card-shadow border border-stone-100">
+                    <h4 class="text-center font-bold text-slate-700 mb-6">政策フォーカス比較イメージ</h4>
+                    <div class="chart-container">
+                        <canvas id="policyRadarChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-4">※各党の主張・公約に基づく傾向イメージです</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 5 Perspectives (Comparison) -->
+        <section id="comparison" class="bg-stone-100 py-16">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">アラサーが選ぶ「5つの視点」</h3>
+                    <p class="text-slate-600">
+                        カテゴリを選んで、両陣営のスタンスを比較しましょう。
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-6" id="perspectiveTabs">
+                    <button onclick="updateComparison('tax')" class="tab-btn bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-medium transition shadow-md" data-tab="tax">💰 物価・消費税</button>
+                    <button onclick="updateComparison('kids')" class="tab-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-200 transition" data-tab="kids">👶 子育て・教育</button>
+                    <button onclick="updateComparison('work')" class="tab-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-200 transition" data-tab="work">💼 働き方・所得</button>
+                    <button onclick="updateComparison('security')" class="tab-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-200 transition" data-tab="security">🛡️ 外交・安保</button>
+                    <button onclick="updateComparison('reform')" class="tab-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-200 transition" data-tab="reform">⚖️ 憲法・改革</button>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow min-h-[300px] transition-all duration-300" id="comparisonCard">
+                    <h4 id="compTitle" class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">物価・消費税</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">与党（自民・維新）</div>
+                            <div class="text-2xl font-bold text-slate-700 mb-2" id="compRulingHeadline">2年間限定 0%</div>
+                            <p class="text-slate-600 leading-relaxed text-sm" id="compRulingDesc">
+                                食料品消費税を「2年間」に限定して0%に引き下げ。短期的な景気刺激策として位置づけ、その後の経済成長による税収増を目指す。
+                            </p>
+                        </div>
+                        <div class="border-t md:border-t-0 md:border-l border-stone-100 pt-6 md:pt-0 md:pl-8">
+                            <div class="text-xs font-bold text-amber-600 uppercase tracking-wide mb-2">中道改革連合（立憲・公明）</div>
+                            <div class="text-2xl font-bold text-amber-600 mb-2" id="compOppHeadline">恒久的に 0%</div>
+                            <p class="text-slate-600 leading-relaxed text-sm" id="compOppDesc">
+                                食料品消費税を「恒久的」に0%へ。家計の負担を長期的に軽減することを重視し、生活必需品への課税を廃止するスタンス。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-stone-50 p-4 rounded-lg border border-stone-200">
+                        <span class="font-bold text-sm text-slate-800">💡 アラサーへの影響：</span>
+                        <p class="text-sm text-slate-600 mt-1" id="compInsight">
+                            今すぐの現金を重視するなら恒久減税が魅力ですが、2年後の財政健全化や将来世代へのツケをどう考えるかが判断の分かれ目です。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Vote Simulation (Interactive) -->
+        <section id="simulation" class="bg-white py-16 border-t border-stone-100">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">クイック投票診断</h3>
+                    <p class="text-slate-600">
+                        直感で3つの質問に答えて、相性を確認してみましょう。
+                    </p>
+                </div>
+
+                <div class="bg-white border-2 border-stone-100 rounded-xl p-6 card-shadow">
+                    <div id="quizContainer">
+                        <div class="quiz-step mb-6">
+                            <p class="font-bold text-lg mb-4 text-slate-800">Q1. 消費税の減税について、どちらが良い？</p>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q1" value="ruling" class="mr-3 h-5 w-5 accent-slate-600">
+                                    <span>とりあえず2年間0%にして、経済成長を優先したい</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q1" value="opp" class="mr-3 h-5 w-5 accent-amber-600">
+                                    <span>将来ずっと0%にして、家計の安定を優先したい</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-step mb-6">
+                            <p class="font-bold text-lg mb-4 text-slate-800">Q2. 子育て支援、どちらを重視する？</p>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q2" value="ruling" class="mr-3 h-5 w-5 accent-slate-600">
+                                    <span>所得制限の撤廃や、教育バウチャーなど「選択肢」の拡大</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q2" value="opp" class="mr-3 h-5 w-5 accent-amber-600">
+                                    <span>給食費無料化や児童手当拡充など「現物・現金」の支給</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-step mb-8">
+                            <p class="font-bold text-lg mb-4 text-slate-800">Q3. 安全保障・外交のスタンスは？</p>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q3" value="ruling" class="mr-3 h-5 w-5 accent-slate-600">
+                                    <span>防衛力を強化し、強い姿勢で国を守る（戦略的明確化）</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-stone-50 transition">
+                                    <input type="radio" name="q3" value="opp" class="mr-3 h-5 w-5 accent-amber-600">
+                                    <span>対話を重視し、極端な緊張緩和を目指す（現実的平和）</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button onclick="calculateResult()" class="w-full bg-slate-800 text-white py-4 rounded-xl font-bold text-lg hover:bg-slate-700 transition shadow-lg">診断結果を見る</button>
+                    </div>
+
+                    <div id="resultContainer" class="hidden text-center fade-in">
+                        <p class="text-sm text-slate-500 mb-2">あなたの回答傾向は...</p>
+                        <h4 class="text-2xl font-bold text-slate-800 mb-4" id="resultTitle">診断中...</h4>
+                        <p class="text-slate-600 mb-6" id="resultDesc">...</p>
+                        <button onclick="resetQuiz()" class="text-sm text-slate-500 underline hover:text-slate-800">もう一度やる</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Schedule & Action (Updated with Current Date 2026.01.23) -->
+        <section id="schedule" class="bg-stone-800 text-stone-100 py-16">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-white">📅 選挙スケジュール</h3>
+                        <div class="relative pl-8 timeline-line space-y-8">
+                            <!-- Target Date Updated to Today -->
+                            <div class="relative z-10 bg-stone-700 p-4 rounded-lg border border-amber-500/50">
+                                <div class="absolute -left-[39px] bg-amber-500 h-6 w-6 rounded-full border-4 border-stone-800 animate-pulse"></div>
+                                <div class="text-sm text-amber-400 font-bold mb-1">今ここ！ 2026.01.23</div>
+                                <div class="font-bold text-lg text-white">衆議院解散</div>
+                                <p class="text-xs text-stone-300 mt-2">
+                                    本日、通常国会冒頭で解散が断行されました。
+                                    これから2月8日の投票日に向けた超短期決戦が始まります。
+                                </p>
+                            </div>
+                            <div class="relative z-10">
+                                <div class="absolute -left-[39px] bg-stone-600 h-6 w-6 rounded-full border-4 border-stone-800"></div>
+                                <div class="text-sm text-stone-400">2026.01.27</div>
+                                <div class="font-bold">公示日（選挙戦スタート）</div>
+                            </div>
+                            <div class="relative z-10">
+                                <div class="absolute -left-[39px] bg-stone-600 h-6 w-6 rounded-full border-4 border-stone-800"></div>
+                                <div class="text-sm text-stone-400">2026.01.28 〜 02.07</div>
+                                <div class="font-bold">期日前投票 期間</div>
+                                <p class="text-xs text-stone-400 mt-1">
+                                    仕事帰りに区役所やショッピングセンターで投票可能です。
+                                </p>
+                            </div>
+                            <div class="relative z-10">
+                                <div class="absolute -left-[39px] bg-stone-100 h-6 w-6 rounded-full border-4 border-stone-800"></div>
+                                <div class="text-sm text-stone-400">2026.02.08 (日)</div>
+                                <div class="font-bold text-xl text-white">投開票日</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-stone-700 p-8 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4 text-white">📌 失敗しないための3ステップ</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-stone-900 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
+                                <span class="text-stone-300 text-sm"><strong>「最大の問題」を1つ決める</strong><br>全部を叶える党はありません。年金、手取り、教育費...一番困っていることに絞りましょう。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-stone-900 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
+                                <span class="text-stone-300 text-sm"><strong>消去法で選ぶ</strong><br>「ここだけは嫌だ」を外していき、最後に残ったのがベターな選択肢です。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-stone-900 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
+                                <span class="text-stone-300 text-sm"><strong>期日前投票に行く</strong><br>日曜日は何があるかわかりません。アラサーこそ、平日の隙間時間を活用しましょう。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-500 py-8 text-center text-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="mb-2">出典：2026年 衆議院議員総選挙 情勢レポート</p>
+            <p>© 2026 Election Guide. Generated for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        const comparisons = {
+            tax: {
+                title: "物価・消費税",
+                rulingHead: "2年間限定 0%",
+                rulingDesc: "食料品消費税を「2年間」に限定して0%に引き下げ。短期的な景気刺激策として位置づけ、その後の経済成長による税収増を目指す。",
+                oppHead: "恒久的に 0%",
+                oppDesc: "食料品消費税を「恒久的」に0%へ。家計の負担を長期的に軽減することを重視し、生活必需品への課税を廃止するスタンス。",
+                insight: "今すぐの現金を重視するなら恒久減税が魅力ですが、2年後の財政健全化や将来世代へのツケをどう考えるかが判断の分かれ目です。"
+            },
+            kids: {
+                title: "子育て・教育",
+                rulingHead: "所得制限撤廃・教育無償化",
+                rulingDesc: "維新の政策を取り入れ、教育の完全無償化を推進。所得制限を撤廃し、広く中間層以上も支援する方針。",
+                oppHead: "手厚い現物給付・給食無償化",
+                oppDesc: "給食費の無償化や児童手当の拡充など、生活に密着したコストを直接削減。現役世代の社会保険料軽減も掲げる。",
+                insight: "「教育費の心配をなくしたい」なら与党、「毎月の生活コストを下げたい」なら野党連合、という傾向があります。"
+            },
+            work: {
+                title: "働き方・所得",
+                rulingHead: "労働移動と成長産業",
+                rulingDesc: "成長産業への転職を支援し、賃金アップを目指す。解雇規制の緩和など、雇用の流動化も議論の遡上に。",
+                oppHead: "手取り増・非正規是正",
+                oppDesc: "給付付き税額控除で、低・中所得者の手取りを直接増やす。非正規雇用の正規化を促進し、安定を重視。",
+                insight: "キャリアアップで稼ぎたい派（与党）か、今の生活の安定と底上げを求める派（野党）かで分かれます。"
+            },
+            security: {
+                title: "外交・安全保障",
+                rulingHead: "戦略的明確化・防衛増強",
+                rulingDesc: "防衛力を抜本的に強化し、対中制裁も辞さない強い姿勢。「力による平和」を掲げる。",
+                oppHead: "現実的平和・対話路線",
+                oppDesc: "日米同盟を基軸としつつも、周辺国との対話を重視。過度な軍拡競争を避け、緊張緩和を目指す。",
+                insight: "国際情勢の緊張をどう見るか。強い抑止力を求めるか、外交による安定を求めるかの選択です。"
+            },
+            reform: {
+                title: "憲法・政治改革",
+                rulingHead: "憲法改正・透明化",
+                rulingDesc: "憲法改正への意欲が高く、緊急事態条項などを議論。政治資金の透明化も進める。",
+                oppHead: "資金規正・夫婦別姓",
+                oppDesc: "政治資金規正法の再改正を最優先。選択的夫婦別姓の早期実現など、多様性を重視。",
+                insight: "憲法改正や夫婦別姓など、国の「かたち」や「価値観」に関する大きな分岐点です。"
+            }
+        };
+
+        function updateComparison(key) {
+            const data = comparisons[key];
+            const card = document.getElementById('comparisonCard');
+            card.style.opacity = '0.5';
+            setTimeout(() => {
+                document.getElementById('compTitle').textContent = data.title;
+                document.getElementById('compRulingHeadline').textContent = data.rulingHead;
+                document.getElementById('compRulingDesc').textContent = data.rulingDesc;
+                document.getElementById('compOppHeadline').textContent = data.oppHead;
+                document.getElementById('compOppDesc').textContent = data.oppDesc;
+                document.getElementById('compInsight').textContent = data.insight;
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    if(btn.dataset.tab === key) {
+                        btn.className = "tab-btn bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-medium transition shadow-md";
+                    } else {
+                        btn.className = "tab-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-200 transition";
+                    }
+                });
+                card.style.opacity = '1';
+            }, 150);
+        }
+
+        function calculateResult() {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+            if (!q1 || !q2 || !q3) {
+                alert("全ての質問に答えてください。");
+                return;
+            }
+            let rulingScore = 0;
+            let oppScore = 0;
+            [q1, q2, q3].forEach(val => {
+                if (val === 'ruling') rulingScore++;
+                else oppScore++;
+            });
+            const resultContainer = document.getElementById('resultContainer');
+            const quizContainer = document.getElementById('quizContainer');
+            const title = document.getElementById('resultTitle');
+            const desc = document.getElementById('resultDesc');
+            quizContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+            if (rulingScore > oppScore) {
+                title.textContent = "「与党（自民・維新）」寄り";
+                title.className = "text-2xl font-bold text-slate-700 mb-4";
+                desc.textContent = "経済成長、競争力強化、そして自律的なキャリア形成を重視する傾向があります。短期間の減税で景気を回し、強い外交で国を守るスタンスに共感度が高いようです。";
+            } else {
+                title.textContent = "「中道改革連合（立憲・公明）」寄り";
+                title.className = "text-2xl font-bold text-amber-600 mb-4";
+                desc.textContent = "生活の安定、格差是正、転じて将来への安心感を重視する傾向があります。恒久的な減税や手厚い福祉サポートで、足元の暮らしを支えるスタンスに共感度が高いようです。";
+            }
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('resultContainer').classList.add('hidden');
+            document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('policyRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['経済成長', '生活安定', '構造改革', '家計支援', '防衛力'],
+                    datasets: [{
+                        label: '与党（自民・維新）',
+                        data: [90, 40, 90, 50, 90],
+                        backgroundColor: 'rgba(100, 116, 139, 0.2)',
+                        borderColor: 'rgba(100, 116, 139, 1)',
+                        pointBackgroundColor: 'rgba(100, 116, 139, 1)',
+                        borderWidth: 2
+                    }, {
+                        label: '改革連合（立憲・公明）',
+                        data: [50, 90, 60, 90, 50],
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                        borderColor: 'rgba(217, 119, 6, 1)',
+                        pointBackgroundColor: 'rgba(217, 119, 6, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e7eb' },
+                            grid: { color: '#e5e7eb' },
+                            pointLabels: {
+                                font: { size: 12, family: "'Noto Sans JP', sans-serif" },
+                                color: '#475569'
+                            },
+                            ticks: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
